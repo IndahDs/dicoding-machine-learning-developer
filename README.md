@@ -13,6 +13,7 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 
 # Result
 | **No.** |              **Course **                    | **Issued**  | 
+----------| --------------------------------------------|-------------|
 | 1       | Belajar Dasar Visualisasi Data              | 18-07-2021  |
 | 2       | Memulai Pemrograman Dengan Python           | 18-07-2021  |
 | 3       | Belajar Machine Learning untuk Pemula       | 19-07-2021  |
