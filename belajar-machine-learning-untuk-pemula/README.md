@@ -3,7 +3,7 @@ Kelas ini membahas mengenai dasar-dasar yang harus dipahami dalam pembelajaran m
 Materi yang dipelajari:
 
 1. **Data Introduction** : Pengenalan terhadap data dan bagaimana mempersiapkannya untuk diproses dengan machine learning.
-2. **Data Unsupervised & Supervised ** : Memahami 2 jenis machine learning yaitu unsupervised dan supervised, dengan contoh model regresi linier dan decision tree. Di sini juga belajar tentang clustering dengan k-means
+2. **Data Unsupervised & Supervised** : Memahami 2 jenis machine learning yaitu unsupervised dan supervised, dengan contoh model regresi linier dan decision tree. Di sini juga belajar tentang clustering dengan k-means
 4. **Support Vector Machine** : Mengenal Support Vector machine, sebuah model machine learning yang sangat populer.
 5. **Machine Learning Basics** : Memahami bagaimana menggunakan grid search untuk mencari parameter terbaik untuk sebuah model, serta bagaimana menguji kualitas sebuah model machine learning.
 6. **Neural Networks** : Mengenal dasar dari neural network. Akan diterangkan mengenai multi layer perceptron serta convolutional neural network dalam image classification.
