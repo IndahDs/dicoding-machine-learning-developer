@@ -12,8 +12,8 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 * Belajar Machine Learning untuk Pemula [[click here ->]](https://github.com/IndahDs/dicoding-machine-learning-developer/tree/main/belajar-machine-learning-untuk-pemula)
 
 # Result
-| **No.** |              **Course **                    | **Issued**  | 
-----------| --------------------------------------------|-------------|
-| 1       | Belajar Dasar Visualisasi Data              | 18-07-2021  |
-| 2       | Memulai Pemrograman Dengan Python           | 18-07-2021  |
-| 3       | Belajar Machine Learning untuk Pemula       | 19-07-2021  |
+| **No.** |              **Course **                    | **Issued**  |  **Certificate Link**  |
+----------| --------------------------------------------|-------------|------------------------|
+| 1       | Belajar Dasar Visualisasi Data              | 18-07-2021  | [click here](https://www.dicoding.com/certificates/0LZ0337Y0Z65)|
+| 2       | Memulai Pemrograman Dengan Python           | 18-07-2021  | [click here](https://www.dicoding.com/certificates/L4PQ339O2PO1)|
+| 3       | Belajar Machine Learning untuk Pemula       | 19-07-2021  | [click here](https://www.dicoding.com/certificates/JLX133K45P72)|
