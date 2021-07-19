@@ -8,5 +8,5 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 - [x] [Memulai Pemrograman Dengan Python](https://www.dicoding.com/academies/86), Mempelajari bagaimana Python yang menjadi landasan penting berbagai tren industri seperti ilmu data, pemelajaran mesin, dan manajemen infrastruktur.
 - [x] [Belajar Machine Learning untuk Pemula](https://www.dicoding.com/academies/184), Mempelajari materi dasar pengembangan machine learning dan langkah menciptakan model machine learning pertamamu untuk memproses data.
 
-#Submission 
-. Belajar Machine Learning untuk Pemula 
+# Submission 
+* Belajar Machine Learning untuk Pemula 
