@@ -9,4 +9,4 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 - [x] [Belajar Machine Learning untuk Pemula](https://www.dicoding.com/academies/184), Mempelajari materi dasar pengembangan machine learning dan langkah menciptakan model machine learning pertamamu untuk memproses data.
 
 # Submission 
-* Belajar Machine Learning untuk Pemula [click here ->](https://github.com/IndahDs/dicoding-machine-learning-developer/tree/main/belajar-machine-learning-untuk-pemula)
+* Belajar Machine Learning untuk Pemula [[click here ->]](https://github.com/IndahDs/dicoding-machine-learning-developer/tree/main/belajar-machine-learning-untuk-pemula)
