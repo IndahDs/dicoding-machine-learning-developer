@@ -18,7 +18,7 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 | 1       | Belajar Dasar Visualisasi Data              | 18-07-2021  | [click here](https://www.dicoding.com/certificates/0LZ0337Y0Z65)|
 | 2       | Memulai Pemrograman Dengan Python           | 18-07-2021  | [click here](https://www.dicoding.com/certificates/L4PQ339O2PO1)|
 | 3       | Belajar Machine Learning untuk Pemula       | 19-07-2021  | [click here](https://www.dicoding.com/certificates/JLX133K45P72)|
-| 4       | Belajar Pengembangan Machine Learning       | 19-07-2021  | [click here](https://www.dicoding.com/certificates/L4PQ38877PO1)|
+| 4       | Belajar Pengembangan Machine Learning       | 06-08-2021  | [click here](https://www.dicoding.com/certificates/L4PQ38877PO1)|
 
 # Thanks
 Terima Kasih saya ucapkan kepada [IDCamp Indosat Ooredoo 2021](https://idcamp.indosatooredoo.com/) dan [Dicoding](https://www.dicoding.com/) atas kesempatan ini.
