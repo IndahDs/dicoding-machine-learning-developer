@@ -11,6 +11,7 @@ Learning Path **Machine Learning Developer** ini didapatkan dari program beasisw
 
 # Submission 
 * Belajar Machine Learning untuk Pemula [[click here ->]](https://github.com/IndahDs/dicoding-machine-learning-developer/tree/main/belajar-machine-learning-untuk-pemula)
+* Belajar Pengembangan Machine Learning [[click here ->]](https://github.com/IndahDs/dicoding-machine-learning-developer/tree/main/belajar-pengembangan-machine-learning)
 
 # Result
 | **No.** |              **Course**                    | **Issued**  |  **Certificate Link**  |
