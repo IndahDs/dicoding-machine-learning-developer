@@ -23,22 +23,36 @@ Support Vector Machine (SVM) adalah salah satu metode diskriminatif yang paling 
 
 Decision    tree    merupakan    algoritma    yang    umum    digunakan    untuk   pengambilan  keputusan.  Decision  tree  akan  mencari  solusi  permasalahan  dengan  menjadikan  kriteria sebagai node yang saling berhubungan membentuk seperti struktur pohon. Decision tree adalah model prediksi terhadap suatu keputusan menggunakan struktur hirarki atau pohon.  Setiap  pohon  memiliki  cabang,  cabang  mewakili  suatu  atribut  yang  harus  dipenuhi  untuk  menuju cabang selanjutnya hingga berakhir di daun (tidak ada cabang lagi)[[5]](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/78/50). 
 
+![dt](https://user-images.githubusercontent.com/79253590/137063693-c7acb491-6ebb-41b7-923c-a74d15d477ef.png)
+
+
 * Logistic Regression
 
 Logistic Regression merupakan salah satu metode statistika yang sering digunakan untuk menganalisisdata yang mendeskripsikan antara variabel respon dengan satu atau lebih variabel prediksi. Variabel respon dari Logistic Regression bersifat dikotomi yang hanya bernilai 1 (ya) dan 0 (tidak)[[6]](https://seminar.ilkom.unsri.ac.id/index.php/ars/article/view/1932/920).
+
+![lr](https://user-images.githubusercontent.com/79253590/137063706-51824633-bdf9-4cba-8738-381c212c2ea4.png)
 
 * Random Forest
 
 Metode Random Forest (RF) merupakan metode yang
 dapat meningkatkan hasil akurasi, karena dalam membangkitkan simpul anak untuk setiap node dilakukan secara acak. Metode ini digunakan untuk membangun pohon keputusan yang terdiri dari root node, internal node, dan leaf node dengan mengambil atribut dan data secara acak sesuai ketentuan yang diberlakukan[[7]](https://journal.unnes.ac.id/nju/index.php/jte/article/view/10452/6660). 
 
+
+![rf](https://user-images.githubusercontent.com/79253590/137063712-170bbeaf-1129-4b7a-94b5-38847c5b45d9.png)
+
 # Referensi
 [[1]](https://dl.acm.org/doi/abs/10.1145/1835804.1835830) Khosla, A., Cao, Y., Lin, C. C. Y., Chiu, H. K., Hu, J., & Lee, H. (2010). An integrated machine learning approach to stroke prediction. Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 183–191. https://doi.org/10.1145/1835804.1835830
+
 [[2]](https://jurnal.unimus.ac.id/index.php/JKJ/article/view/3932) Oktamiati,  H.  (2014).  Analisis  Praktik  Klinik Keperawatan      Kesehatan      Masyarakat Perkotaan Pada Pasien Stroke Hemoragik  Di  Ruang  Rawat  Melati  Atas RSUP Persahabatan. Depok: Fakultas Ilmu Keperawatan UI. 
+
 [[3]](https://books.google.co.id/books?hl=id&lr=&id=_JXagiMVRykC&oi=fnd&pg=PA1&dq=Solusi+Sehat+Mengatasi+Stroke.+Tangerang:+Agro+Media&ots=tITi22j2BQ&sig=D2wboLkxsM4itV0FOUHN8IWQEnQ&redir_esc=y#v=onepage&q=Solusi%20Sehat%20Mengatasi%20Stroke.%20Tangerang%3A%20Agro%20Media&f=false) Yastroki. (2012). Solusi Sehat Mengatasi Stroke. Tangerang: Agro Media
+
 [[4]](https://ejournal.st3telkom.ac.id/index.php/infotel/article/view/312/209) Widiastuti, N. I., Rainarli, E., & Dewi, K. E. (2017). Peringkasan dan Support Vector Machine pada Klasifikasi Dokumen. Jurnal Infotel, 9(4), 416. https://doi.org/10.20895/infotel.v9i4.312
+
 [[5]](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/78/50) Sartika, D., & Indra, D. (2017). Perbandingan Algoritma Klasifikasi Naive Bayes, Nearest Neighbour, dan Decision Tree pada Studi Kasus Pengambilan Keputusan Pemilihan Pola Pakaian. Jurnal Teknik Informatika Dan Sistem Informasi, 1(2), 151–161.
+
 [[6]](https://seminar.ilkom.unsri.ac.id/index.php/ars/article/view/1932/920) (Bimantara & Dina, 2019)Bimantara, A., & Dina, T. A. (2019). Klasifikasi Web Berbahaya Menggunakan Metode Logistic Regression. Annual Research Seminar (ARS), 4(1), 173–177.
+
 [[7]](https://journal.unnes.ac.id/nju/index.php/jte/article/view/10452/6660) Komunikasi, F., Surakarta, U. M., Yani, J. A., & Pos, T. (2017). Sistem Klasifikasi Variabel Tingkat Penerimaan Konsumen Terhadap Mobil Menggunakan Metode Random Forest. Jurnal Teknik Elektro, 9(1), 24–29. https://doi.org/10.15294/jte.v9i1.10452
 
 
