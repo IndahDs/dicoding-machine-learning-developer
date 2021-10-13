@@ -37,8 +37,91 @@ Logistic Regression merupakan salah satu metode statistika yang sering digunakan
 Metode Random Forest (RF) merupakan metode yang
 dapat meningkatkan hasil akurasi, karena dalam membangkitkan simpul anak untuk setiap node dilakukan secara acak. Metode ini digunakan untuk membangun pohon keputusan yang terdiri dari root node, internal node, dan leaf node dengan mengambil atribut dan data secara acak sesuai ketentuan yang diberlakukan[[7]](https://journal.unnes.ac.id/nju/index.php/jte/article/view/10452/6660). 
 
-
 ![rf](https://user-images.githubusercontent.com/79253590/137063712-170bbeaf-1129-4b7a-94b5-38847c5b45d9.png)
+
+# Data Understanding
+Dataset ini diperoleh dari Kaggle [Stroke Prediction Dataset](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset) yang terdiri atas 5110 data obeservasi dengan 12 atribut.
+
+![kaggle](https://user-images.githubusercontent.com/79253590/137064097-866b822c-1632-4f76-a4e1-0b3740f27c44.png)
+
+dimana berisi variabel-variabel berikut ini:
+1. id : identifikasi pasien 
+
+![image](https://user-images.githubusercontent.com/79253590/137066107-0683b11e-6534-4647-b484-2a4844cb77d4.png)
+
+2. gender : berisi jenis kelamin pasien 
+
+![image](https://user-images.githubusercontent.com/79253590/137066285-7bde5bcb-378d-44ed-9785-64e942107093.png)
+
+3. age : umur pasien 
+
+![image](https://user-images.githubusercontent.com/79253590/137066348-01d5befc-ae5a-4bbf-8238-590a24bcb1a4.png)
+
+4. hypertension : 0 jika tidak memiliki hipertensi dan 1 jika memiliki hipertensi
+
+![image](https://user-images.githubusercontent.com/79253590/137066399-8fa46ac0-0a1d-40cf-8c30-a9252a53fff2.png)
+
+5. heart_disease: 0 jika tidak memiliki serangan jantung, 1 jika memiliki serangan jantung 
+
+![image](https://user-images.githubusercontent.com/79253590/137066423-832404b9-3f9b-4ba7-a397-34b6726ca5a3.png)
+
+6. ever_married: apakah pasien sudah menikah (No/Yes) 
+
+![image](https://user-images.githubusercontent.com/79253590/137066539-70c47e48-a1f2-40b4-bdcf-2e42c958ed35.png)
+
+7. work_type: jenis pekerjaan 
+
+![image](https://user-images.githubusercontent.com/79253590/137066576-7c5112ea-9c53-4d3a-8225-00d7caf95a2e.png)
+
+8. Residence_type: jenis empat tinggal 
+
+![image](https://user-images.githubusercontent.com/79253590/137066614-a40082be-724b-4b91-bb2e-2824a83dbf05.png)
+
+9. avg_glucose_level: rata-rata nilai gula dalam darah 
+
+![image](https://user-images.githubusercontent.com/79253590/137066674-e6522599-0379-4985-80e6-76be39c23236.png)
+
+10. bmi: Index massa tubuh
+
+![image](https://user-images.githubusercontent.com/79253590/137066701-7c6b2721-b4e8-4982-8aac-df933448705f.png)
+
+11. smoking_status: status merokoknya 
+
+![image](https://user-images.githubusercontent.com/79253590/137066756-7cc18ef7-f79d-4cc9-ad61-97323d9dc5fa.png)
+
+12. stroke: 0 jika tidak memiliki stroke dan 1 jika memiliki punya stroke
+
+![image](https://user-images.githubusercontent.com/79253590/137066788-cac15bcd-0981-4b6a-81a7-35f78b05517f.png)
+
+
+# Data Preparation
+1. Langkah pertama yang akan dilakukan adalah proses persiapan data.
+2. Penghapusan sama dan mengganti semua kolom data yang kosong dengan rata-rata nilai dari kolom tersebut.
+3. Menghapus beberapa kolom yang tidak dibutuhkan yaitu id dam avg_glucose_level karena kolom tersebut tidak berkorelasi dengan kolom manapun.
+4. Menghapus outliers data dimana outlier dapat mengganggu performa model.
+5. Merubah semua kolom kategorikal menjadi kolom numerik.
+6. Standarisasi data, dilakukan agar perbandingan jarak antar kolom satu dengan yang lain tidaklah jauh. Dalam hal ini digunakan StandardScaler pada scikit-learn.
+7. Split data menjadi data train dan data test.
+
+# Modeling
+Disini akan dilakukan perbandingan 4 model, yaitu:
+1. Support Vector Machine: Popular pada masalah klasifikasi
+2. Decision Tree: Proses pengambilan keputusan yang kompleks menjadi lebih simple, sehingga pengambil keputusan akan lebih menginterpretasikan solusi dari permasalahan.
+3. Logistic Regression: Dapat mendeskripsikan hubungan antara peubah respon (dependent variable) yang bersifat kualitatif memiliki dua kategori atau lebih dengan satu atau lebih peubah penjelas (independent variable) berskala kategori atau interval
+4. Random Forest: Kombinasi dari masing – masing tree yang baik kemudian dikombinasikan ke dalam satu model dimana bergantung pada sebuah nilai vector random dengan distribusi yang sama pada semua pohon yang masing masing decision tree memiliki kedalaman yang maksimal
+
+# Evaluasi 
+Dalam hal ini akan digunakan metrik evaluasi akurasi. Dimana tabel akan mempresentasikan nilai akurasi dari masing-masing model hasil akurasi train dan test. Berikut tabelnya :
+
+![image](https://user-images.githubusercontent.com/79253590/137066835-13bd1aba-89d8-4410-bf86-5ae53c7c5151.png)
+
+Akan ditampilkan juga hasil plot dari tiap-tiap model
+
+![image](https://user-images.githubusercontent.com/79253590/137066870-11b42b05-f653-4fb9-b364-fb7f8d7ce81e.png)
+
+![image](https://user-images.githubusercontent.com/79253590/137066962-fe6671b9-813a-44f3-82fd-ea7349617154.png)
+
+Kesimpulan dari analisis tersebut adalah dari keempat model tersebut dapat melakukan prediksi dengan baik namun, dapat dilihat berdasarkan grafik plot model Logistic Regression (LR) dan Support Vector Machine (SVM) lah yang memiliki performa hampir mirip.
 
 # Referensi
 [[1]](https://dl.acm.org/doi/abs/10.1145/1835804.1835830) Khosla, A., Cao, Y., Lin, C. C. Y., Chiu, H. K., Hu, J., & Lee, H. (2010). An integrated machine learning approach to stroke prediction. Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 183–191. https://doi.org/10.1145/1835804.1835830
