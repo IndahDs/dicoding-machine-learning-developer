@@ -1,142 +1,163 @@
 # Laporan Proyek Machine Learning - Indah Dwi Sulistiyawati
 # Domain Proyek
-Domain Proyek pada proyek ini adalah mengenai kesehatan yang di buat untuk mengetahui apakah kita mendapati penyakit stroke atau tidak. Stroke adalah penyebab kematian ketiga dan penyebab utama kecacatan jangka panjang yang serius [[1]](https://dl.acm.org/doi/abs/10.1145/1835804.1835830). Prediksi risiko stroke dapat memberikan kontribusi yang signifikan untuk pencegahan dan pengobatan dini. Sejumlah penelitian medis dan analisis data telah dilakukan untuk mengidentifikasi prediktor stroke yang efektif. 
+Domain Proyek pada proyek ini adalah mengenai bidang ekonomi dan bisnis yang di buat untuk mengetahui prediksi harga smartphone untuk mencegah penipuan.  
 * Latar Belakang 
-![24059463_1254289268050706_637254001679480115_o](https://user-images.githubusercontent.com/79253590/137060561-cd7e599f-821e-42b9-a1cc-691b8debcbc3.jpg)
+![image](https://user-images.githubusercontent.com/79253590/137494141-83e84912-54c6-4395-9416-e8c670668f75.png)
 
-Stroke adalah sindroma klinis yang awal timbulnya mendadak dan cepat, yang berupa defisit neurologis fokal dan atau global, yang terkadang berlangsung 24 jam atau nantinya akan   langsung   menimbulkan   kematian,   dan semata-mata      disebabkan      oleh      gangguan peredaran darah otak non traumatik[[2]](https://jurnal.unimus.ac.id/index.php/JKJ/article/view/3932). Berdasarkan data Sample registrasion survey (SRS) tahun 2014, diketahui bahwa tiga besar penyebab kematian di Indonesia adalah penyakit tidak menular dengan stroke sebagai penyebab tertinggi yang diikuti oleh penyakit jantung dan pembuluh darah serta diabetes dengan komplikasi.
-Sedangkan Menurut    data    yang    dikumpulkan    oleh Yayasan   Stroke   Indonesia,   masalah   stroke semakin   penting   dan   mendesak   karena   kini jumlah   penderita   stroke   di   Indonesia   adalah terbanyak  dan  menduduki  urutan  pertama  di Asia.  Jumlah  kematian  yang  disebabkan  oleh stroke menduduki urutan kedua pada usia diatas 60  tahun  dan  urutan  kelima  pada  usia  15-59 tahun[[3]](https://books.google.co.id/books?hl=id&lr=&id=_JXagiMVRykC&oi=fnd&pg=PA1&dq=Solusi+Sehat+Mengatasi+Stroke.+Tangerang:+Agro+Media&ots=tITi22j2BQ&sig=D2wboLkxsM4itV0FOUHN8IWQEnQ&redir_esc=y#v=onepage&q=Solusi%20Sehat%20Mengatasi%20Stroke.%20Tangerang%3A%20Agro%20Media&f=false). Dengan adanya model machine learning ini diharapkan dapat memudahkan ahli dalam mengetahui apakah seseorang terkena penyakit stoke atau tidak. 
+Cukup banyak modus penipuan yang memakan korban akhir-akhir ini. Salah satu yang sering dijumpai adalah penipuan berkedok menjual smartphone mahal dengan harga murah. Pola penipu ini hampir sama. Mereka menjual smartphone, biasanya iPhone (karena banyak peminatnya) dengan harga seperlima bahkan seperenam lebih murah dari harga pasar. Untuk meyakinkan calon korban, mereka berdalih jika smartphone yang dijual adalah original HP blackmarket. Artinya, smartphone tersebut memang asli buatan perusahaan Apple akan tetapi imeinya tidak terdaftar dan dilegalisasi negara.[[1]](https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang).
+Hal tersebut yang memicu calon korban percaya kemudian melakukan transaksi jual beli. "Korban-korbannya tergiur karena harganya murah. Ditambah diskon besar. Padahal itu hanya jebakan. Setelah korban mentransfer uang, pelaku tidak mengirim ponsel tersebut," tutur Faisal. Kasat Reskrim Polres Karawang AKP Oliestha Ageng Wicaksana mengungkapkan, selama beraksi, YTW meraup uang Rp 25 juta dari para korbannya. "Untuk menghilangkan jejak, pelaku kerap mengganti kartu SIM card ponselnya. Kami temukan delapan kartu ponsel yang pernah ia gunakan," kata Oliestha [[2]](https://news.detik.com/berita-jawa-barat/d-5268472/polres-karawang-bongkar-aksi-penipu-berkedok-jual-smartphone-murah). 
+
+Untuk memininalisir permasalahan serupa, didalam proyek ini akan dibuat model machine learning dengan mengklasifikasikan kategori smartphone mulai dari biaya rendah hingga biaya paling tinggi. Dengan adanya model ini, pembeli dapat mengecek spesifikasi smartphone dan memperkirakan apakah smartphone termasuk dalam kategori biaya rendah, biaya sedang, biaya tinggi, dan biaya sangat tinggi sebagai tahapan pertimbangan untuk mengurangi terjadinya terjerumus kedalam pasar gelap. Implementasi model ini dapat dijalankan pada aplikasi web atau android maupun ios.
+
 # Business Understanding
 # Problem Statements
-Berangkat dari latar belakang diatas, rincian masalah yang dapat diselesaikan pada proyek ini adalah apakah model machine learning dapat membantu memprediksi penyakit stroke ?
+Berangkat dari latar belakang diatas, rincian masalah yang dapat diselesaikan pada proyek ini adalah sebagai berikut :
+* Bagaimana cara melakukan pra-pemrosesan data agar dapat digunakan pada model machine learning?
+* Bagaimana cara membuat model machine learning untuk mengklasifikasikan kisaran harga smartphone?
+
 # Goals
-Untuk memprediksi apakah seseorang mengalami penyakit stroke atau tidak
+* Melakukan *pra-pemrosesan* data agar dapat digunakan pada model machine learning.
+* Membuat model machine learning untuk mengklasifikasikan kisaran harga ponsel yang memiliki tingkat akurasi > 75%.
+
 # Solution Statements
-Dalam hal ini akan didbandingan empat metode machine learning, antara lain:
-* Support Vector Machine
+Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
+* *Pra-pemrosesan* dapat dilakukan beberapa teknik sebagai berikut.
+   * Melakukan *Categorical Encoding* sebagai proses mengubah data kategori menjadi data numerik menggunakan One-Hot Encoding
+   * Melakukan *Split Data* dengan membagi 2 dataset sebagai data latih (train data) dan data test (test data) dengan perbandingan rasio 80% : 20%.
+   * Melakukan standardisasi data pada fitur numerik dengan *StandarScaler*.
 
-Support Vector Machine (SVM) adalah salah satu metode diskriminatif yang paling tepat yang digunakan dalam klasifikasi.   Metode   inibekerja   berdasarkan   pada Structural Risk Minimization, yang merupakan prinsip induktif  penggunaan  dalam  pembelajaran  mesin[[4]](https://ejournal.st3telkom.ac.id/index.php/infotel/article/view/312/209). 
+* Untuk pembuatan model akan digunakan algoritma *Support Vector Machine* (SVM) sebagai model baseline. Konsep SVM dapat dijelaskan secara sederhana sebagai usaha mencari
+hyperplane terbaik yang berfungsi sebagai pemisah dua buah kelas pada input space. Pattern merupakan anggota dari dua buah kelas: +1 dan -1 dan berbagi alternatif garis pemisah (discrimination boundaries). Margin adalah jarak antara hyperplane tersebut dengan pattern terdekat dari masing-masing kelas. Pattern yang paling dekat ini disebut sebagai support vector. Usaha untuk mencari lokasi hyperplane ini merupakan inti dari proses pembelajaran pada SVM[[3]](https://books.google.co.id/books?hl=id&lr=&id=_PXJn_cxv0AC&oi=fnd&pg=PR9&dq=Cristianini+dan+Tayor,+S.+(2000)+An+introduction+to+Support+Vector+Machines.+Cambridge+University+Press.+El-Halees,&ots=xTPh4JYu_f&sig=7NLoE51Zx2Y22-r7POyBFEre7VY&redir_esc=y#v=onepage&q&f=false). 
+![image](https://user-images.githubusercontent.com/79253590/137500672-d9e0aabc-3f8f-4f63-88ec-e45eff657a59.png)
 
-![svm](https://user-images.githubusercontent.com/79253590/137062345-158b3329-e0a5-48bd-90eb-b4fab6a3250d.png)
-
-* Decision Tree
-
-Decision    tree    merupakan    algoritma    yang    umum    digunakan    untuk   pengambilan  keputusan.  Decision  tree  akan  mencari  solusi  permasalahan  dengan  menjadikan  kriteria sebagai node yang saling berhubungan membentuk seperti struktur pohon. Decision tree adalah model prediksi terhadap suatu keputusan menggunakan struktur hirarki atau pohon.  Setiap  pohon  memiliki  cabang,  cabang  mewakili  suatu  atribut  yang  harus  dipenuhi  untuk  menuju cabang selanjutnya hingga berakhir di daun (tidak ada cabang lagi)[[5]](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/78/50). 
-
-![dt](https://user-images.githubusercontent.com/79253590/137063693-c7acb491-6ebb-41b7-923c-a74d15d477ef.png)
-
-
-* Logistic Regression
-
-Logistic Regression merupakan salah satu metode statistika yang sering digunakan untuk menganalisisdata yang mendeskripsikan antara variabel respon dengan satu atau lebih variabel prediksi. Variabel respon dari Logistic Regression bersifat dikotomi yang hanya bernilai 1 (ya) dan 0 (tidak)[[6]](https://seminar.ilkom.unsri.ac.id/index.php/ars/article/view/1932/920).
-
-![lr](https://user-images.githubusercontent.com/79253590/137063706-51824633-bdf9-4cba-8738-381c212c2ea4.png)
-
-* Random Forest
-
-Metode Random Forest (RF) merupakan metode yang
-dapat meningkatkan hasil akurasi, karena dalam membangkitkan simpul anak untuk setiap node dilakukan secara acak. Metode ini digunakan untuk membangun pohon keputusan yang terdiri dari root node, internal node, dan leaf node dengan mengambil atribut dan data secara acak sesuai ketentuan yang diberlakukan[[7]](https://journal.unnes.ac.id/nju/index.php/jte/article/view/10452/6660). 
-
-![rf](https://user-images.githubusercontent.com/79253590/137063712-170bbeaf-1129-4b7a-94b5-38847c5b45d9.png)
+  Dalam proyek kali ini akan digunakan SVM Klasifikasi Non-Linier. Adapun cara kerjanya yaitu : 
+  * Data dimuat
+  * Mentransformasikan data menjadi ruang baru
+  * Memisahkan data dengan mengimplementasikan beberapa fungsi kernel, antara lain:
+    | **Jenis Kernel** |            **Definisi**                    | 
+    |------------------| -------------------------------------------| 
+    | Polynomial       | ![image](https://user-images.githubusercontent.com/79253590/137501979-e4b8b51a-9bcf-4810-a556-be1267b785be.png)|
+    | Gaussian         | ![image](https://user-images.githubusercontent.com/79253590/137502045-834543da-150e-4688-ae25-6c466d0e57e8.png)| 
+    | Sigmoid          | ![image](https://user-images.githubusercontent.com/79253590/137502112-75606447-d3d0-430a-8981-26fae3988344.png)| 
+   
+   Adapun kelebihan dan kekurangan dari SVM, antara lain [[4]](http://learningbox.coffeecup.com/SVM.html) , [[5]](https://www.dqlab.id/perbandingan-support-vector-machine-dan-decision-tree):
+   * Kelebihan :
+     * Pengklasifikasi SVM menawarkan akurasi tinggi dan bekerja dengan baik dengan ruang dimensi tinggi. SVM pengklasifikasi pada dasarnya menggunakan subset dari poin pelatihan sehingga hasilnya menggunakan memori yang sangat sedikit.
+     * Landasan teori Sebagai metode yang berbasis statistik, SVM memiliki landasan teori yang dapat dianalisa dengan jelas, dan tidak bersifat black box.
+     * Feasibility SVM dapat diimplementasikan relatif mudah, karena proses penentuan support vector dapat dirumuskan dalam QP problem.
+   * Kekurangan :
+     * Sulit dipakai dalam problem berskala besar. Skala besar dalam hal ini dimaksudkan dengan jumlah sample yang diolah.
+     * SVM secara teoritik dikembangkan untuk problem klasifikasi dengan dua class
+     * Memiliki waktu pelatihan yang tinggi sehingga dalam praktiknya tidak cocok untuk kumpulan data yang besar
 
 # Data Understanding
-Dataset ini diperoleh dari Kaggle [Stroke Prediction Dataset](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset) yang terdiri atas 5110 data obeservasi dengan 12 atribut.
+![image](https://user-images.githubusercontent.com/79253590/137503484-8496c1c0-8170-421f-be79-89e248615799.png)
 
-![kaggle](https://user-images.githubusercontent.com/79253590/137064097-866b822c-1632-4f76-a4e1-0b3740f27c44.png)
+Informasi terkait dataset dapat dilihat dalam tabel berikut
+|             Jenis	          |       Keterangan       |
+|             Sumber       	  |Kaggle Dataset : Mobile Price Classification(https://www.kaggle.com/iabhishekofficial/mobile-price-classification)|
+|            Kategori         |Bisnis dan Klasifikasi|
+|        Rating Penggunaan    |	7.1 (Gold)|
+| Jenis dan Ukuran Berkas	    | CSV (122.4 kB)|
 
-dimana berisi variabel-variabel berikut ini:
-1. id : identifikasi pasien 
+Pada berkas yang diunduh yakni train.csv(https://www.kaggle.com/iabhishekofficial/mobile-price-classification) terdapat 2.000 baris (jumlah pengamatan) dan 21 kolom dalam dataset. Berdasarkan informasi dari dataset, variabel pada Mobile Price Classification sebagai berikut.
+1. battery_power	: energi total yang dapat disimpan baterai dalam satu waktu diukur dalam mAh
+2. blue	: memiliki bluetooth atau tidak memiliki bluetooth
+3. clock_speed :	kecepatan mikroprosesor mengeksekusi instruksi
+4. dual_sim	: ya atau tidak
+5. fc	: resolusi kamera depan (mega piksels)
+6. four_g :	4G atau tidak
+7. int_memory	: memori internal (Gigabytes)
+8. m_dep : ketebalan ponsel (cm)
+9. mobile_wt : berat ponsel
+10. n_cores : jumlah core dalam processor
+11. pc : resolusi kamera utama (mega pixels)
+12. px_height : tinggi resolusi piksel
+13. px_width : lebar resolusi piksel
+14. ram :	Random Access Memory (mega byte)
+15. sc_h	: tinggi layar ponsel (cm)
+16. sc_w	: lebar layar ponsel (cm)
+17. talk_time	: waktu terlama satu kali pengisian baterai akan bertahan saat Anda berada
+18. three_g	: 3G atau tidak
+19. touch_screen: layar sentuh atau tidak
+20. wifi	: memiliki wifi atau tidak
+21. price_range	: variabel target dengan nilai 0 (low cost), 1 (medium cost), 2 (high cost) dan 3 (very high cost)
 
-![image](https://user-images.githubusercontent.com/79253590/137066107-0683b11e-6534-4647-b484-2a4844cb77d4.png)
+![image](https://user-images.githubusercontent.com/79253590/137505060-51cba8bb-8f9b-4bf4-8c80-5c1961aba80c.png)
 
-2. gender : berisi jenis kelamin pasien 
+Dari gambar diatas dijelaskan bahwa didalam data terdapat 7 data kategori bertipe object dan 14 data numerik bertipe int64 dan float64. Visualisasi data kategori sebagai berikut.
+![image](https://user-images.githubusercontent.com/79253590/137505346-630b2691-9a43-455f-bd87-65c497625a9a.png)
+![image](https://user-images.githubusercontent.com/79253590/137505370-3dac5116-9fa2-4981-a82f-cadd79e0702c.png)
+![image](https://user-images.githubusercontent.com/79253590/137505393-b83ffb15-43ef-4262-ba1c-f2a04b5e78d9.png)
+![image](https://user-images.githubusercontent.com/79253590/137505421-5fbc2fef-24b7-49f8-b873-70d177765b24.png)
+![image](https://user-images.githubusercontent.com/79253590/137505440-5597947a-05bd-4e8d-9ffd-678a3726a00d.png)
+![image](https://user-images.githubusercontent.com/79253590/137505454-1d6e9f8f-2280-47ca-a439-92dd03079792.png)
+![image](https://user-images.githubusercontent.com/79253590/137505474-0d40a59c-aae0-4204-b60a-0c9b4fbd54a9.png)
 
-![image](https://user-images.githubusercontent.com/79253590/137066285-7bde5bcb-378d-44ed-9785-64e942107093.png)
+Sementara itu, untuk visualisasi numeriknya adalah:
+![image](https://user-images.githubusercontent.com/79253590/137505672-33254a5a-04be-4135-a7d1-5a7019900278.png)
 
-3. age : umur pasien 
+Untuk visualisasi distribusi data pada kolom dengan numeric features dan antar numeric features sebagai berikut.
+![image](https://user-images.githubusercontent.com/79253590/137505858-d075fb56-3ca1-43f4-902e-f8da2d9fd16a.png)
 
-![image](https://user-images.githubusercontent.com/79253590/137066348-01d5befc-ae5a-4bbf-8238-590a24bcb1a4.png)
-
-4. hypertension : 0 jika tidak memiliki hipertensi dan 1 jika memiliki hipertensi
-
-![image](https://user-images.githubusercontent.com/79253590/137066399-8fa46ac0-0a1d-40cf-8c30-a9252a53fff2.png)
-
-5. heart_disease: 0 jika tidak memiliki serangan jantung, 1 jika memiliki serangan jantung 
-
-![image](https://user-images.githubusercontent.com/79253590/137066423-832404b9-3f9b-4ba7-a397-34b6726ca5a3.png)
-
-6. ever_married: apakah pasien sudah menikah (No/Yes) 
-
-![image](https://user-images.githubusercontent.com/79253590/137066539-70c47e48-a1f2-40b4-bdcf-2e42c958ed35.png)
-
-7. work_type: jenis pekerjaan 
-
-![image](https://user-images.githubusercontent.com/79253590/137066576-7c5112ea-9c53-4d3a-8225-00d7caf95a2e.png)
-
-8. Residence_type: jenis empat tinggal 
-
-![image](https://user-images.githubusercontent.com/79253590/137066614-a40082be-724b-4b91-bb2e-2824a83dbf05.png)
-
-9. avg_glucose_level: rata-rata nilai gula dalam darah 
-
-![image](https://user-images.githubusercontent.com/79253590/137066674-e6522599-0379-4985-80e6-76be39c23236.png)
-
-10. bmi: Index massa tubuh
-
-![image](https://user-images.githubusercontent.com/79253590/137066701-7c6b2721-b4e8-4982-8aac-df933448705f.png)
-
-11. smoking_status: status merokoknya 
-
-![image](https://user-images.githubusercontent.com/79253590/137066756-7cc18ef7-f79d-4cc9-ad61-97323d9dc5fa.png)
-
-12. stroke: 0 jika tidak memiliki stroke dan 1 jika memiliki punya stroke
-
-![image](https://user-images.githubusercontent.com/79253590/137066788-cac15bcd-0981-4b6a-81a7-35f78b05517f.png)
-
+Untuk visualisasi heatmap (korelasi numeric features) adalah sebagai berikut.
+![image](https://user-images.githubusercontent.com/79253590/137506034-8935d742-c0c8-44e3-8260-181b3e20cfb5.png)
 
 # Data Preparation
-1. Langkah pertama yang akan dilakukan adalah proses persiapan data.
-2. Penghapusan sama dan mengganti semua kolom data yang kosong dengan rata-rata nilai dari kolom tersebut.
-3. Menghapus beberapa kolom yang tidak dibutuhkan yaitu id dam avg_glucose_level karena kolom tersebut tidak berkorelasi dengan kolom manapun.
-4. Menghapus outliers data dimana outlier dapat mengganggu performa model.
-5. Merubah semua kolom kategorikal menjadi kolom numerik.
-6. Standarisasi data, dilakukan agar perbandingan jarak antar kolom satu dengan yang lain tidaklah jauh. Dalam hal ini digunakan StandardScaler pada scikit-learn.
-7. Split data menjadi data train dan data test.
+Seperti yang sudah disebutkan sebelumnya pada bagian Solution statements, berikut adalah tahapan-tahapan dalam melakukan pra-pemrosesan data :
+1. Melakukan Categorical Encoding 
+Digunakan sebagai proses mengubah data kategori menjadi data numerik. Untuk teknik Encoding fitur kategori menggunakan One-Hot Encoding. One-Hot Encoding untuk data nominal. Data nominal diklasifikasikan tanpa urutan atau peringkat.
+2. Split Data
+Split data adalah pembagian dataset menjadi 2, yaitu data latih (train data) dengan rasio 80% dan data test (test data) dengan rasio 20%. data latih (train data) berguna untuk pelatihan model dan data test (test data) untuk menguji model. Pembagian dataset dilakukan modul train_test_split(https://scikit-learn.org/0.24/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split) dari scikit-learn.
+3. Standardisasi data pada numeric features
+Tujuannya adalah untuk membuat numerical data pada varibel independen memiliki rentang nilai (scale) yang sama. Untuk melakukan standardisasi data, digunakan fungsi StandardScaler(https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). StandardScaler(https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) membuat mean menjadi 0 atau mendekati 0 dan 68% dari rentang data diantara -1 dan 0. 
 
 # Modeling
-Disini akan dilakukan perbandingan 4 model, yaitu:
-1. Support Vector Machine: Popular pada masalah klasifikasi
-2. Decision Tree: Proses pengambilan keputusan yang kompleks menjadi lebih simple, sehingga pengambil keputusan akan lebih menginterpretasikan solusi dari permasalahan.
-3. Logistic Regression: Dapat mendeskripsikan hubungan antara peubah respon (dependent variable) yang bersifat kualitatif memiliki dua kategori atau lebih dengan satu atau lebih peubah penjelas (independent variable) berskala kategori atau interval
-4. Random Forest: Kombinasi dari masing – masing tree yang baik kemudian dikombinasikan ke dalam satu model dimana bergantung pada sebuah nilai vector random dengan distribusi yang sama pada semua pohon yang masing masing decision tree memiliki kedalaman yang maksimal
+Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakukan dua hal, yakni tahap pembuatan model baseline dan pembuatan model yang dikembangkan.
+* Model *baseline*
+  Model baseline pada tahap ini, akan dibuat model dasar dengan menggunakan modul dari scikit-learn yaitu SVC dengan parameter default. Kemudian dilakukan prediksi pada data test.
+  ![image](https://user-images.githubusercontent.com/79253590/137507945-d7e2f017-8472-42b6-a3cf-7d34dcf4a940.png)
 
-# Evaluasi 
-Dalam hal ini akan digunakan metrik evaluasi akurasi. Dimana tabel akan mempresentasikan nilai akurasi dari masing-masing model hasil akurasi train dan test. Berikut tabelnya :
+* Model yang dikembangkan
+  Model yang dikembangkan Setelah melihat kinerja dari model *baseline*, untuk model dapat bekerja lebih optimal maka diperlukan *Hyper Parameter Tuning*.* Hyper Parameter Tuning* digunakan untuk mencari parameter terbaik yang akan diterapkan pada model *baseline*.
+  ![image](https://user-images.githubusercontent.com/79253590/137507999-7ebb7f19-702d-45bb-8b5c-ab192c3836d8.png)
+  
+  Pada model baseline memiliki nilai akurasi yang cukup baik yaitu 96,25% dan nilai f1 score, recall, serta precision cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya menjadi 83,75% dan nilai f1 score, recall, serta precision yang cukup baik. Untuk membuktikan nilai akurasi, f1 score, recall, dan precision menggunakan visualisasi pada confusion matriks sebagai berikut.
+  
+![image](https://user-images.githubusercontent.com/79253590/137508657-b3f63fc0-74f0-43ec-a821-6671c06cb527.png)
+![image](https://user-images.githubusercontent.com/79253590/137508684-288cf148-b1d5-495a-8140-8d4f74195cb0.png)
 
-![image](https://user-images.githubusercontent.com/79253590/137066835-13bd1aba-89d8-4410-bf86-5ae53c7c5151.png)
+Dari hasil diatas, maka model yang dipilih adalah model awal.
 
-Akan ditampilkan juga hasil plot dari tiap-tiap model
+# Evaluasi
+Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification report* dalam mengevalusasi model.
+* *Confusion Matriks*
+  Confusion matriks adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. 
+  ![image](https://user-images.githubusercontent.com/79253590/137509262-23d32427-5c2e-4f7b-808b-4da51bd0a6a6.png)
+  
+  Keterangan:
+  * True Positif: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas positif sebagai positif.
+  * False Positive: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas negatif sebagai positif.
+  * False Negative: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas positif sebagai negatif.
+  * True Negative: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas negatif sebagai negatif.
 
-![image](https://user-images.githubusercontent.com/79253590/137066870-11b42b05-f653-4fb9-b364-fb7f8d7ce81e.png)
+* *Classification Report*
+  *Classification report* digunakan untuk mengukur kualitas prediksi dari algoritma klasifikasi. Classification report menampilkan nilai akurasi, f1 score, recall, dan precision untuk model.
+  ![image](https://user-images.githubusercontent.com/79253590/137509646-e4a98801-48be-4c9c-ae21-1909452ff1ba.png)
 
-![image](https://user-images.githubusercontent.com/79253590/137066962-fe6671b9-813a-44f3-82fd-ea7349617154.png)
-
-Kesimpulan dari analisis tersebut adalah dari keempat model tersebut dapat melakukan prediksi dengan baik namun, dapat dilihat berdasarkan grafik plot model Logistic Regression (LR) dan Support Vector Machine (SVM) lah yang memiliki performa hampir mirip.
 
 # Referensi
-[[1]](https://dl.acm.org/doi/abs/10.1145/1835804.1835830) Khosla, A., Cao, Y., Lin, C. C. Y., Chiu, H. K., Hu, J., & Lee, H. (2010). An integrated machine learning approach to stroke prediction. Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 183–191. https://doi.org/10.1145/1835804.1835830
+[[1]] https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang
 
-[[2]](https://jurnal.unimus.ac.id/index.php/JKJ/article/view/3932) Oktamiati,  H.  (2014).  Analisis  Praktik  Klinik Keperawatan      Kesehatan      Masyarakat Perkotaan Pada Pasien Stroke Hemoragik  Di  Ruang  Rawat  Melati  Atas RSUP Persahabatan. Depok: Fakultas Ilmu Keperawatan UI. 
+[[2]] https://news.detik.com/berita-jawa-barat/d-5268472/polres-karawang-bongkar-aksi-penipu-berkedok-jual-smartphone-murah
 
-[[3]](https://books.google.co.id/books?hl=id&lr=&id=_JXagiMVRykC&oi=fnd&pg=PA1&dq=Solusi+Sehat+Mengatasi+Stroke.+Tangerang:+Agro+Media&ots=tITi22j2BQ&sig=D2wboLkxsM4itV0FOUHN8IWQEnQ&redir_esc=y#v=onepage&q=Solusi%20Sehat%20Mengatasi%20Stroke.%20Tangerang%3A%20Agro%20Media&f=false) Yastroki. (2012). Solusi Sehat Mengatasi Stroke. Tangerang: Agro Media
+[[3]](https://books.google.co.id/books?hl=id&lr=&id=_PXJn_cxv0AC&oi=fnd&pg=PR9&dq=Cristianini+dan+Tayor,+S.+(2000)+An+introduction+to+Support+Vector+Machines.+Cambridge+University+Press.+El-Halees,&ots=xTPh4JYu_f&sig=7NLoE51Zx2Y22-r7POyBFEre7VY&redir_esc=y#v=onepage&q&f=false) Cristianini dan Tayor, S. (2000) An introduction to Support Vector Machines. Cambridge University Press.
+El-Halees,
 
-[[4]](https://ejournal.st3telkom.ac.id/index.php/infotel/article/view/312/209) Widiastuti, N. I., Rainarli, E., & Dewi, K. E. (2017). Peringkasan dan Support Vector Machine pada Klasifikasi Dokumen. Jurnal Infotel, 9(4), 416. https://doi.org/10.20895/infotel.v9i4.312
+[[4]](http://learningbox.coffeecup.com/SVM.html) 
 
-[[5]](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/78/50) Sartika, D., & Indra, D. (2017). Perbandingan Algoritma Klasifikasi Naive Bayes, Nearest Neighbour, dan Decision Tree pada Studi Kasus Pengambilan Keputusan Pemilihan Pola Pakaian. Jurnal Teknik Informatika Dan Sistem Informasi, 1(2), 151–161.
+[[5]](https://www.dqlab.id/perbandingan-support-vector-machine-dan-decision-tree)
 
-[[6]](https://seminar.ilkom.unsri.ac.id/index.php/ars/article/view/1932/920) (Bimantara & Dina, 2019)Bimantara, A., & Dina, T. A. (2019). Klasifikasi Web Berbahaya Menggunakan Metode Logistic Regression. Annual Research Seminar (ARS), 4(1), 173–177.
-
-[[7]](https://journal.unnes.ac.id/nju/index.php/jte/article/view/10452/6660) Komunikasi, F., Surakarta, U. M., Yani, J. A., & Pos, T. (2017). Sistem Klasifikasi Variabel Tingkat Penerimaan Konsumen Terhadap Mobil Menggunakan Metode Random Forest. Jurnal Teknik Elektro, 9(1), 24–29. https://doi.org/10.15294/jte.v9i1.10452
 
 
 
