@@ -34,11 +34,17 @@ hyperplane terbaik yang berfungsi sebagai pemisah dua buah kelas pada input spac
   * Data dimuat
   * Mentransformasikan data menjadi ruang baru
   * Memisahkan data dengan mengimplementasikan beberapa fungsi kernel, antara lain:
-    | **Jenis Kernel** |            **Definisi**                    | 
-    |------------------| -------------------------------------------| 
-    | Polynomial       | ![image](https://user-images.githubusercontent.com/79253590/137501979-e4b8b51a-9bcf-4810-a556-be1267b785be.png)|
-    | Gaussian         | ![image](https://user-images.githubusercontent.com/79253590/137502045-834543da-150e-4688-ae25-6c466d0e57e8.png)| 
-    | Sigmoid          | ![image](https://user-images.githubusercontent.com/79253590/137502112-75606447-d3d0-430a-8981-26fae3988344.png)| 
+    1. Polynomial
+    
+       ![image](https://user-images.githubusercontent.com/79253590/137501979-e4b8b51a-9bcf-4810-a556-be1267b785be.png)
+       
+    2. Gaussian 
+    
+       ![image](https://user-images.githubusercontent.com/79253590/137502045-834543da-150e-4688-ae25-6c466d0e57e8.png)
+       
+    3. Sigmoid 
+    
+       ![image](https://user-images.githubusercontent.com/79253590/137502112-75606447-d3d0-430a-8981-26fae3988344.png)
    
    Adapun kelebihan dan kekurangan dari SVM, antara lain [[4]](http://learningbox.coffeecup.com/SVM.html) , [[5]](https://www.dqlab.id/perbandingan-support-vector-machine-dan-decision-tree):
    * Kelebihan :
@@ -55,12 +61,12 @@ hyperplane terbaik yang berfungsi sebagai pemisah dua buah kelas pada input spac
 
 Informasi terkait dataset dapat dilihat dalam tabel berikut
 |             Jenis	          |       Keterangan       |
-|             Sumber       	  |Kaggle Dataset : Mobile Price Classification(https://www.kaggle.com/iabhishekofficial/mobile-price-classification)|
+|             Sumber       	  |Kaggle Dataset : [Mobile Price Classification](https://www.kaggle.com/iabhishekofficial/mobile-price-classification) |
 |            Kategori         |Bisnis dan Klasifikasi|
 |        Rating Penggunaan    |	7.1 (Gold)|
 | Jenis dan Ukuran Berkas	    | CSV (122.4 kB)|
 
-Pada berkas yang diunduh yakni train.csv(https://www.kaggle.com/iabhishekofficial/mobile-price-classification) terdapat 2.000 baris (jumlah pengamatan) dan 21 kolom dalam dataset. Berdasarkan informasi dari dataset, variabel pada Mobile Price Classification sebagai berikut.
+Pada berkas yang diunduh yakni [train.csv](https://www.kaggle.com/iabhishekofficial/mobile-price-classification) terdapat 2.000 baris (jumlah pengamatan) dan 21 kolom dalam dataset. Berdasarkan informasi dari dataset, variabel pada Mobile Price Classification sebagai berikut.
 1. battery_power	: energi total yang dapat disimpan baterai dalam satu waktu diukur dalam mAh
 2. blue	: memiliki bluetooth atau tidak memiliki bluetooth
 3. clock_speed :	kecepatan mikroprosesor mengeksekusi instruksi
@@ -125,6 +131,7 @@ Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakuk
   Pada model baseline memiliki nilai akurasi yang cukup baik yaitu 96,25% dan nilai f1 score, recall, serta precision cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya menjadi 83,75% dan nilai f1 score, recall, serta precision yang cukup baik. Untuk membuktikan nilai akurasi, f1 score, recall, dan precision menggunakan visualisasi pada confusion matriks sebagai berikut.
   
 ![image](https://user-images.githubusercontent.com/79253590/137508657-b3f63fc0-74f0-43ec-a821-6671c06cb527.png)
+
 ![image](https://user-images.githubusercontent.com/79253590/137508684-288cf148-b1d5-495a-8140-8d4f74195cb0.png)
 
 Dari hasil diatas, maka model yang dipilih adalah model awal.
@@ -147,16 +154,16 @@ Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification rep
 
 
 # Referensi
-[[1]] https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang
+[1] https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang
 
-[[2]] https://news.detik.com/berita-jawa-barat/d-5268472/polres-karawang-bongkar-aksi-penipu-berkedok-jual-smartphone-murah
+[2] https://news.detik.com/berita-jawa-barat/d-5268472/polres-karawang-bongkar-aksi-penipu-berkedok-jual-smartphone-murah
 
 [[3]](https://books.google.co.id/books?hl=id&lr=&id=_PXJn_cxv0AC&oi=fnd&pg=PR9&dq=Cristianini+dan+Tayor,+S.+(2000)+An+introduction+to+Support+Vector+Machines.+Cambridge+University+Press.+El-Halees,&ots=xTPh4JYu_f&sig=7NLoE51Zx2Y22-r7POyBFEre7VY&redir_esc=y#v=onepage&q&f=false) Cristianini dan Tayor, S. (2000) An introduction to Support Vector Machines. Cambridge University Press.
 El-Halees,
 
-[[4]](http://learningbox.coffeecup.com/SVM.html) 
+[4] http://learningbox.coffeecup.com/SVM.html 
 
-[[5]](https://www.dqlab.id/perbandingan-support-vector-machine-dan-decision-tree)
+[5] https://www.dqlab.id/perbandingan-support-vector-machine-dan-decision-tree
 
 
 
