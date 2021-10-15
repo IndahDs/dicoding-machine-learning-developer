@@ -116,7 +116,7 @@ Digunakan sebagai proses mengubah data kategori menjadi data numerik. Untuk tekn
 2. Split Data
 Split data adalah pembagian dataset menjadi 2, yaitu data latih (train data) dengan rasio 80% dan data test (test data) dengan rasio 20%. data latih (train data) berguna untuk pelatihan model dan data test (test data) untuk menguji model. Pembagian dataset dilakukan modul [train_test_split](https://scikit-learn.org/0.24/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split) dari scikit-learn.
 3. Standardisasi data pada numeric features
-Tujuannya adalah untuk membuat numerical data pada varibel independen memiliki rentang nilai (scale) yang sama. Untuk melakukan standardisasi data, digunakan fungsi [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). [StandardScaler[](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) membuat mean menjadi 0 atau mendekati 0 dan 68% dari rentang data diantara -1 dan 0. 
+Tujuannya adalah untuk membuat numerical data pada varibel independen memiliki rentang nilai (scale) yang sama. Untuk melakukan standardisasi data, digunakan fungsi [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) membuat mean menjadi 0 atau mendekati 0 dan 68% dari rentang data diantara -1 dan 0. 
 
 # Modeling
 Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakukan dua hal, yakni tahap pembuatan model baseline dan pembuatan model yang dikembangkan.
