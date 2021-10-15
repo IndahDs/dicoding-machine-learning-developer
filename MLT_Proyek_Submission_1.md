@@ -127,6 +127,7 @@ Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakuk
 
 * Model yang dikembangkan
   Model yang dikembangkan Setelah melihat kinerja dari model *baseline*, untuk model dapat bekerja lebih optimal maka diperlukan *Hyper Parameter Tuning*.* Hyper Parameter Tuning* digunakan untuk mencari parameter terbaik yang akan diterapkan pada model *baseline*.
+  
   ![image](https://user-images.githubusercontent.com/79253590/137507999-7ebb7f19-702d-45bb-8b5c-ab192c3836d8.png)
   
   Pada model baseline memiliki nilai akurasi yang cukup baik yaitu 96,25% dan nilai f1 score, recall, serta precision cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya menjadi 83,75% dan nilai f1 score, recall, serta precision yang cukup baik. Untuk membuktikan nilai akurasi, f1 score, recall, dan precision menggunakan visualisasi pada confusion matriks sebagai berikut.
@@ -151,6 +152,7 @@ Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification rep
 
 * *Classification Report*
   *Classification report* digunakan untuk mengukur kualitas prediksi dari algoritma klasifikasi. Classification report menampilkan nilai akurasi, f1 score, recall, dan precision untuk model.
+  
   ![image](https://user-images.githubusercontent.com/79253590/137509646-e4a98801-48be-4c9c-ae21-1909452ff1ba.png)
 
 
