@@ -137,6 +137,7 @@ Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakuk
 Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification report* dalam mengevalusasi model.
 * *Confusion Matriks*
   *Confusion matriks* adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. 
+  
   ![image](https://user-images.githubusercontent.com/79253590/137509262-23d32427-5c2e-4f7b-808b-4da51bd0a6a6.png)
   
   Keterangan:
