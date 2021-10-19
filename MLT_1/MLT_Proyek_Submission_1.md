@@ -178,6 +178,7 @@ Sehingga, secara keseluruhan dapat kita simpulkan bahwa :
 Sehingga, model yang dipilih adalah model yang dikembangkan menggunakan *Hyper Parameter Tuning*.
 
 * Akurasi
+
   Akurasi adalah ukuran keakuratan model saat menggunakan data aktual untuk memprediksi data. Kelebihan dari metriks ini adalah sering digunakan dalam kasus pembuatan model klasifikasi baik itu klasifikasi dua kelas, atau kategori. Kekurangan dari metrik ini adalah dapat bersifat 'menyesatkan' pada data yang tidak seimbang. Berikut merupakan rumus dari akurasi.
   
   ![image](https://user-images.githubusercontent.com/79253590/137870849-cbbd44f6-c240-45a2-a399-f60adfb4ea50.png)
