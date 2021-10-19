@@ -147,9 +147,11 @@ Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification rep
   
   Berikut perbandingan *confusion matriks* pada analisa kedua model.
   * Model *baseline*
+  
   ![image](https://user-images.githubusercontent.com/79253590/137863022-9b3c1168-e6ee-44b4-8a47-7c452926b8de.png)
   
   * Model yang dikembangkan*
+  
   ![image](https://user-images.githubusercontent.com/79253590/137863064-24ddec36-fc55-4684-a019-da87db62fea1.png)
   
   Dari kedua gambar tersebut, dapat kita lihat bahwa nilai *False Positif*  dan *False Negatif* pada model *baseline* lebih besar dibandingkan dengan model yang dikembangkan.
@@ -168,7 +170,7 @@ Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification rep
   
 Sehingga, secara keseluruhan dapat kita simpulkan bahwa :
 1. Pada model *baseline* memiliki nilai akurasi yang cukup baik yaitu 86,25% dan nilai *f1 score*, *recall*, serta *precision* cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya bertambah menjadi 94,75% dan *f1 score*, *recall*, serta *precision* yang juga ikut meningkat.
-2. Dari *confusion matriks* dan *classification report*, dapat dilihat bahwa model yang dikembangkan menggunakan *Hyper Parameter Tuning* memiliki nilai *false positif* serta *false negatif* lebih kecil. Sementara pada *classification report* nilai  *f1 score*, *recall*, serta *precision* lebih baik dari model baseline.
+2. Dari *confusion matriks* dapat dilihat bahwa model yang dikembangkan menggunakan *Hyper Parameter Tuning* memiliki nilai *false positif* serta *false negatif* lebih kecil. Sementara pada *classification report* nilai  *f1 score*, *recall*, serta *precision* lebih baik dari model baseline.
 
 Sehingga, model yang dipilih adalah model yang dikembangkan menggunakan *Hyper Parameter Tuning*.
 
