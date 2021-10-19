@@ -92,6 +92,7 @@ Pada berkas yang diunduh yakni [train.csv](https://www.kaggle.com/iabhishekoffic
 ![image](https://user-images.githubusercontent.com/79253590/137505060-51cba8bb-8f9b-4bf4-8c80-5c1961aba80c.png)
 
 Dari gambar diatas dijelaskan bahwa didalam data terdapat 7 data kategori bertipe object dan 14 data numerik bertipe int64 dan float64. Visualisasi data kategori sebagai berikut.
+
 ![image](https://user-images.githubusercontent.com/79253590/137505346-630b2691-9a43-455f-bd87-65c497625a9a.png)
 ![image](https://user-images.githubusercontent.com/79253590/137505370-3dac5116-9fa2-4981-a82f-cadd79e0702c.png)
 ![image](https://user-images.githubusercontent.com/79253590/137505393-b83ffb15-43ef-4262-ba1c-f2a04b5e78d9.png)
@@ -107,54 +108,69 @@ Untuk visualisasi distribusi data pada kolom dengan numeric features dan antar n
 ![image](https://user-images.githubusercontent.com/79253590/137505858-d075fb56-3ca1-43f4-902e-f8da2d9fd16a.png)
 
 Untuk visualisasi heatmap (korelasi numeric features) adalah sebagai berikut.
-![image](https://user-images.githubusercontent.com/79253590/137506034-8935d742-c0c8-44e3-8260-181b3e20cfb5.png)
+![image](https://user-images.githubusercontent.com/79253590/137862189-4d34ce1b-6657-48a8-8de8-944ffbd65d9c.png)
+
+Keterangan heatmap:
+
+* Semakin mendekati 1 maka semakin tinggi korelasi antar fitur numerik
+* Semakin mendekati 0 maka korelasi antar fitur numerik mendekati netral
+* Semakin mendekati -1 maka semakin rendah korelasi antar fitur numerik
 
 # Data Preparation
 Seperti yang sudah disebutkan sebelumnya pada bagian Solution statements, berikut adalah tahapan-tahapan dalam melakukan pra-pemrosesan data :
-1. Melakukan Categorical Encoding 
-Digunakan sebagai proses mengubah data kategori menjadi data numerik. Untuk teknik Encoding fitur kategori menggunakan One-Hot Encoding. One-Hot Encoding untuk data nominal. Data nominal diklasifikasikan tanpa urutan atau peringkat.
-2. Split Data
-Split data adalah pembagian dataset menjadi 2, yaitu data latih (train data) dengan rasio 80% dan data test (test data) dengan rasio 20%. data latih (train data) berguna untuk pelatihan model dan data test (test data) untuk menguji model. Pembagian dataset dilakukan modul [train_test_split](https://scikit-learn.org/0.24/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split) dari scikit-learn.
-3. Standardisasi data pada numeric features
-Tujuannya adalah untuk membuat numerical data pada varibel independen memiliki rentang nilai (scale) yang sama. Untuk melakukan standardisasi data, digunakan fungsi [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) membuat mean menjadi 0 atau mendekati 0 dan 68% dari rentang data diantara -1 dan 0. 
+1. Melakukan *Categorical Encoding*
+Digunakan sebagai proses mengubah data kategori menjadi data numerik. Untuk teknik *Encoding* fitur kategori menggunakan *One-Hot Encoding*. *One-Hot Encoding* untuk data nominal. Data nominal diklasifikasikan tanpa urutan atau peringkat.
+2. *Split Data*
+*Split data* adalah pembagian dataset menjadi 2, yaitu data latih (*train data*) dengan rasio 80% dan data test (*test data*) dengan rasio 20%. data latih (*train data*) berguna untuk pelatihan model dan data test (*test data*) untuk menguji model. Pembagian dataset dilakukan modul [*train_test_split*](https://scikit-learn.org/0.24/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split) dari scikit-learn.
+3. Standardisasi data pada *numeric features*
+Tujuannya adalah untuk membuat *numerical data* pada varibel independen memiliki rentang nilai (scale) yang sama. Untuk melakukan standardisasi data, digunakan fungsi [*StandardScaler*](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). [*StandardScaler*](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) membuat mean menjadi 0 atau mendekati 0 dan 68% dari rentang data diantara -1 dan 0. 
 
 # Modeling
 Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakukan dua hal, yakni tahap pembuatan model baseline dan pembuatan model yang dikembangkan.
 * Model *baseline*
-  Model baseline pada tahap ini, akan dibuat model dasar dengan menggunakan modul dari scikit-learn yaitu SVC dengan parameter default. Kemudian dilakukan prediksi pada data test.
-  
-  ![image](https://user-images.githubusercontent.com/79253590/137507945-d7e2f017-8472-42b6-a3cf-7d34dcf4a940.png)
+  Model baseline pada tahap ini, akan dibuat model dasar menggunakan modul dari scikit-learn yaitu SVC dengan parameter default yang selanjutnya pada data test akan dilakukan prediksi.
 
 * Model yang dikembangkan
-  Model yang dikembangkan Setelah melihat kinerja dari model *baseline*, untuk model dapat bekerja lebih optimal maka diperlukan *Hyper Parameter Tuning*.* Hyper Parameter Tuning* digunakan untuk mencari parameter terbaik yang akan diterapkan pada model *baseline*.
-  
-  ![image](https://user-images.githubusercontent.com/79253590/137507999-7ebb7f19-702d-45bb-8b5c-ab192c3836d8.png)
-  
-  Pada model baseline memiliki nilai akurasi yang cukup baik yaitu 96,25% dan nilai f1 score, recall, serta precision cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya menjadi 83,75% dan nilai f1 score, recall, serta precision yang cukup baik. Untuk membuktikan nilai akurasi, f1 score, recall, dan precision menggunakan visualisasi pada confusion matriks sebagai berikut.
-  
-![image](https://user-images.githubusercontent.com/79253590/137508657-b3f63fc0-74f0-43ec-a821-6671c06cb527.png)
-
-![image](https://user-images.githubusercontent.com/79253590/137508684-288cf148-b1d5-495a-8140-8d4f74195cb0.png)
-
-Dari hasil diatas, maka model yang dipilih adalah model awal.
+  Model yang dikembangkan Setelah melihat kinerja dari model *baseline*, untuk model dapat bekerja lebih optimal maka diperlukan *Hyper Parameter Tuning*. *Hyper Parameter Tuning* digunakan untuk mencari parameter terbaik yang akan diterapkan pada model *baseline*. Pada analisis kali ini akan digunakan [*Grid Search Cross Validation* (CV)](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html). [*Grid Search Cross Validation* (CV)](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) adalah metode pemilihan kombinasi model dan hyperparameter dengan cara menguji coba satu persatu kombinasi dan melakukan validasi untuk setiap kombinasi. Tujuannya adalah menentukan kombinasi yang menghasilkan performa model terbaik yang dapat dipilih untuk dijadikan model untuk prediksi.
 
 # Evaluasi
 Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification report* dalam mengevalusasi model.
 * *Confusion Matriks*
-  Confusion matriks adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. 
+  *Confusion matriks* adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. 
   ![image](https://user-images.githubusercontent.com/79253590/137509262-23d32427-5c2e-4f7b-808b-4da51bd0a6a6.png)
   
   Keterangan:
-  * True Positif: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas positif sebagai positif.
-  * False Positive: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas negatif sebagai positif.
-  * False Negative: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas positif sebagai negatif.
-  * True Negative: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas negatif sebagai negatif.
+  * *True Positive*: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas positif sebagai positif.
+  * *False Positive*: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas negatif sebagai positif.
+  * *False Negative*: Ini mengacu pada jumlah prediksi di mana pengklasifikasi salah memprediksi kelas positif sebagai negatif.
+  * *True Negative*: Ini mengacu pada jumlah prediksi di mana pengklasifikasi dengan benar memprediksi kelas negatif sebagai negatif.
+  
+  Berikut perbandingan *confusion matriks* pada analisa kedua model.
+  * Model *baseline*
+  ![image](https://user-images.githubusercontent.com/79253590/137863022-9b3c1168-e6ee-44b4-8a47-7c452926b8de.png)
+  
+  * Model yang dikembangkan*
+  ![image](https://user-images.githubusercontent.com/79253590/137863064-24ddec36-fc55-4684-a019-da87db62fea1.png)
+  
+  Dari kedua gambar tersebut, dapat kita lihat bahwa nilai *False Positif*  dan *False Negatif* pada model *baseline* lebih besar dibandingkan dengan model yang dikembangkan.
+
 
 * *Classification Report*
-  *Classification report* digunakan untuk mengukur kualitas prediksi dari algoritma klasifikasi. Classification report menampilkan nilai akurasi, f1 score, recall, dan precision untuk model.
+  *Classification report* digunakan untuk mengukur kualitas prediksi dari algoritma klasifikasi. *Classification report* menampilkan nilai akurasi, f1 score, recall, dan precision untuk model.
   
-  ![image](https://user-images.githubusercontent.com/79253590/137509646-e4a98801-48be-4c9c-ae21-1909452ff1ba.png)
+  * Model *baseline*
+    
+    ![image](https://user-images.githubusercontent.com/79253590/137862649-6edc3e88-f4ed-4227-bacc-79b1f405a53d.png)
+    
+  * Model yang dikembangkan
+    
+    ![image](https://user-images.githubusercontent.com/79253590/137862702-4e7701c4-3801-4130-8ed5-4f816c73f2c5.png)
+  
+Sehingga, secara keseluruhan dapat kita simpulkan bahwa :
+1. Pada model *baseline* memiliki nilai akurasi yang cukup baik yaitu 86,25% dan nilai *f1 score*, *recall*, serta *precision* cukup baik. Setelah dilakukan Hyper Parameter Tuning nilai akurasinya bertambah menjadi 94,75% dan *f1 score*, *recall*, serta *precision* yang juga ikut meningkat.
+2. Dari *confusion matriks* dan *classification report*, dapat dilihat bahwa model yang dikembangkan menggunakan *Hyper Parameter Tuning* memiliki nilai *false positif* serta *false negatif* lebih kecil. Sementara pada *classification report* nilai  *f1 score*, *recall*, serta *precision* lebih baik dari model baseline.
 
+Sehingga, model yang dipilih adalah model yang dikembangkan menggunakan *Hyper Parameter Tuning*.
 
 # Referensi
 [1] https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang
