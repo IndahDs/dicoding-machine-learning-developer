@@ -136,6 +136,7 @@ Setelah melakukan pra-pemrosesan data yang baik pada tahap modeling akan dilakuk
 # Evaluasi
 Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification report* dalam mengevalusasi model.
 * *Confusion Matriks*
+
   *Confusion matriks* adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. 
   
   ![image](https://user-images.githubusercontent.com/79253590/137509262-23d32427-5c2e-4f7b-808b-4da51bd0a6a6.png)
@@ -159,6 +160,7 @@ Dalam proses evaluasi akan digunakan *confusion matriks* dan *classification rep
 
 
 * *Classification Report*
+
   *Classification report* digunakan untuk mengukur kualitas prediksi dari algoritma klasifikasi. *Classification report* menampilkan nilai akurasi, f1 score, recall, dan precision untuk model.
   
   * Model *baseline*
@@ -174,6 +176,38 @@ Sehingga, secara keseluruhan dapat kita simpulkan bahwa :
 2. Dari *confusion matriks* dapat dilihat bahwa model yang dikembangkan menggunakan *Hyper Parameter Tuning* memiliki nilai *false positif* serta *false negatif* lebih kecil. Sementara pada *classification report* nilai  *f1 score*, *recall*, serta *precision* lebih baik dari model baseline.
 
 Sehingga, model yang dipilih adalah model yang dikembangkan menggunakan *Hyper Parameter Tuning*.
+
+* Akurasi
+  Akurasi adalah ukuran keakuratan model saat menggunakan data aktual untuk memprediksi data. Kelebihan dari metriks ini adalah sering digunakan dalam kasus pembuatan model klasifikasi baik itu klasifikasi dua kelas, atau kategori. Kekurangan dari metrik ini adalah dapat bersifat 'menyesatkan' pada data yang tidak seimbang. Berikut merupakan rumus dari akurasi.
+  
+  ![image](https://user-images.githubusercontent.com/79253590/137870849-cbbd44f6-c240-45a2-a399-f60adfb4ea50.png)
+
+* *Precision*
+
+  *Precision* adalah metrik dalam kasus klasifikasi, yang digunakan untuk menghitung efek model dalam memprediksi label positif terhadap semua label positif model. Jadi bagaimana cara menghitungnya, pertama kita perlu memahami istilah TP, TN, FP, FN. Dapat menghitung dengan rumus dibawah ini.
+  
+  ![image](https://user-images.githubusercontent.com/79253590/137871112-c5ad0aec-2ffc-42e8-8c7d-57ade3598cd7.png)
+  
+  Kelebihan dari metrik ini adalah fokusnya pada performa model (prediksi) untuk label data positif, sedangkan kelemahan metrik ini adalah tidak mempertimbangkan label negatif.
+
+* *Recall*
+
+  *Recall* adalah metrik dalam kasus klasifikasi, yang digunakan untuk menghitung efek model dalam memprediksi label positif untuk semua label data positif. Cara menghitungnya bisa dilihat pada rumus di bawah ini.
+  
+  ![image](https://user-images.githubusercontent.com/79253590/137871514-e5f26f23-4e88-4f59-9e4d-7d6734ba87f2.png)
+  
+  Keuntungan metrik ini adalah menghitung bagian negatif dari prediksi label positif (tidak sama dengan akurasi). Tetapi kelemahannya adalah ketika semua prediksi = 1, recall akan memiliki nilai 1 (prediksi negatif tidak dipertimbangkan).
+  
+* *f1 score*
+  
+  *f1-score* merupakan metrik dalam kasus klasifikasi yang digunakan untuk menghitung seberapa baik hasil prediksi model (precision) dan seberapa lengkap hasil prediksinya (recall). Cara menghitungnya dapat dilihat pada rumus dibawah ini.
+  
+  ![image](https://user-images.githubusercontent.com/79253590/137871267-dd56370b-692a-4d7e-9ab4-def0080e6b31.png)
+  
+  Catatan : Nilai beta = 1 (f1-score)
+
+  Kelebihan dari metriks ini menutup semua kekurangan yang ada pada precision dan recall. Namun kekurangannya adalah f1-score tidak memperhitungkan hasil prediksi benar pada label negatif.
+  
 
 # Referensi
 [1] https://www.hitekno.com/gadget/2021/10/14/073000/curhat-korban-penipuan-hp-blackmarket-tergiur-iphone-murah-uang-melayang
