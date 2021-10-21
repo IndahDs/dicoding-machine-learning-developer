@@ -12,16 +12,19 @@ lainnya dan memberi saran atau rekomendasi kepada pengguna [[2]](https://d1wqtxt
 
 # Business Understanding
 # Problem Statements
+
 Setelah mengetahui beberapa masalah diatas, berikut ini merupakan rincian masalah yang perlu diselesaikan di proyek ini:
 * Bagaimana mengolah data buku, user, dan rating untuk digunakan sebagai informasi dalam sistem rekomendasi?
 * Bagaimana cara membuat sistem rekomendasi buku ?
 
 # Goals
+
 Berikut adalah tujuan dari dibuatnya proyek ini:
 * Membuat sistem rekomendasi buku.
 * Memberikan rekomendasi buku yang kemungkinan disukai pengguna berdasarkan data buku, user, dan rating.
 
 # Solution approach
+
 Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
 * Pra-pemrosesan data 
   Dalam hal ini akan dilakukan analisis karakteristik dari ketiga data (books, users, ratings) sebelum masuk ke dalam tahap *preparation*
@@ -38,19 +41,24 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
     ![image](https://user-images.githubusercontent.com/79253590/138229003-7cc2bfe1-f351-48b7-86d7-a132ef44db2c.png)
     
 * Persiapan data
+
   Dalam hal ini akan dilakukan seleksi fitur-fitur yang diperlukan.
   * *books* : mengisi data kosong pada publisher dan author
   * *ratings* : menghapus data dengan rating 0
   * *users* : mengisi *missing value* menggunakan modus *Age*
   
 *  Solusi yang diberikan bergantung dengan hasil rekomendasi yang ingin dicapai dan data yang dimiliki, yaitu : 
+
    *  *Popularity based recommendation* 
-      sistem rekomendasi berdasarkan Popularitas bekerja dengan tren. Ini pada dasarnya menggunakan item yang sedang tren saat ini. Misalnya, jika ada produk yang biasanya dibeli oleh setiap pengguna baru, maka ada kemungkinan produk tersebut akan menyarankan item tersebut kepada pengguna yang baru saja mendaftar [[3]](https://medium.com/the-owl/recommender-systems-f62ad843f70c). Teknik yang akan digunakan adalah *weighted rating*. Teknik ini dapat berguna untuk merekomendasikan buku kepada seluruh pengguna baik yang belum memiliki riwayat transaksi maupun yang sudah.
+      
+      Sistem rekomendasi berdasarkan Popularitas bekerja dengan tren. Ini pada dasarnya menggunakan item yang sedang tren saat ini. Misalnya, jika ada produk yang biasanya dibeli oleh setiap pengguna baru, maka ada kemungkinan produk tersebut akan menyarankan item tersebut kepada pengguna yang baru saja mendaftar [[3]](https://medium.com/the-owl/recommender-systems-f62ad843f70c). Teknik yang akan digunakan adalah *weighted rating*. Teknik ini dapat berguna untuk merekomendasikan buku kepada seluruh pengguna baik yang belum memiliki riwayat transaksi maupun yang sudah.
       
    * *Content-Based Recommendation*
+      
       Merekomendasikan buku berdasarkan kemiripan Author terhadap pengguna yang melakukan transaksi pada buku tersebut. Kelebihan teknik ini tidak membutuhkan data transaksi dari user lain karena rekomendasi spesifik untuk user tersebut. Sehingga mempermudah merekomendasikan buku pada jumlah pengguna yang sangat besar. Sedangkan kekurangannya, rekomendasi hanya terbatas pada interest dari pengguna dan tidak bisa memperluas interest tersebut.  
       
    * *Model-Based Collaborative filtering Recommendation*
+      
       Merekomendasikan buku berdasarkan riwayat transaksi (rating) pengguna untuk memprediksi dan menghitung rating yang akan diberikan pengguna pada buku lain menggunakan model machine learning SVD. Algoritma berbasis matrix factorization ini dipopulerkan oleh Simon Funk pada Netflix Prize. Kekurangan dari collaborative filtering tidak bisa merekomendasikan item yang tidak memiliki riwayat transaksi.
       
 # Data Understanding
@@ -66,7 +74,9 @@ Tabel dibawah ini merupakan informasi dari dataset yang digunakan :
 | Jenis dan Ukuran Berkas | zip (107MB) |
 
 Dalam dataset tersebut berisi 3 file csv, yaitu:
+
 * *Books* 
+  
   Berisi informasi buku: 
   * *Book-Title*: judul
   * *Book-Author*: penulis
@@ -75,29 +85,43 @@ Dalam dataset tersebut berisi 3 file csv, yaitu:
   * *Image-URL-S*, *Image-URL-M, Image-URL-L* : link sampul buku
   
 * *Ratings*
+  
   Berisi informasi rating buku dari user
   * *Book-Rating*: rating buku 
   
 * *Users*
+  
   Berisi informasi user
   * *UserID*: identitas unik user berupa integer agar user anonymous
   * *Location*: lokasi tempat tinggal use
   * *Age*: umur user
 
 # Data Preparation
+
 Dalam tahap  ini akan dilakukan proses transformasi pada data sehingga menjadi bentuk yang cocok untuk proses pemodelan. Ada beberapa tahapan yang dilakukan pada data preparation, antara lain :
+
 * *Handling Missing Value*
+  
   Proses mengolah missing value (ex: data umur yang null, data rating 0) dengan menghapus atau mengganti data tersebut dengan value lain.
+  
 * *Encoding* 
-  Melakukan encoding data UserID dan Book Title agar dapat dibaca model dengan baik.
+  
+   Melakukan encoding data UserID dan Book Title agar dapat dibaca model dengan baik.
+   
 * Transformasi Data
+  
   Mentransformasikan book author menjadi matrix dengan TF-IDF Vectorizer untuk mengidentifikasi korelasi antara buku dan authornya.
+  
 * *Merge* Data
+ 
   Menggabungkan data rating dan buku untuk dijadikan dataset.
 
 # Modelling
+
    * *Popularity based recommendation* 
+      
       Digunakan untuk menggabungkan informasi rata-rata rating dan jumlah rating yang diterima per buku dengan menerapkan *weighted rating*, kemudian memilih 10 produk terbaik . Berikut rumus dari *weighted rating* :
+      
       *Weighted Rating* = (Rv + Cm) / (v + m), 
       keterangan :
       * v adalah jumlah rating diterima per buku 
@@ -112,6 +136,7 @@ Dalam tahap  ini akan dilakukan proses transformasi pada data sehingga menjadi b
       ![image](https://user-images.githubusercontent.com/79253590/138238337-6f7a03f5-38d0-45cb-8181-afcff0c6863f.png)
       
    * *Content-Based Recommendation*
+      
       Akan dilakukan perhitungan skor kesamaan menggunakan kesamaan kosinus untuk menghitung kuantitas numerik yang menunjukkan kesamaan antara dua kategori. Dalam hal ini menerapkan skor kesamaan kosinus karena tidak tergantung pada besarnya dan relatif mudah dan cepat untuk dihitung. Secara matematis, didefinisikan sebagai berikut:
 
       ![image](https://user-images.githubusercontent.com/79253590/138236911-1336b352-e704-4c66-bdb4-e3905200916a.png)
@@ -121,13 +146,36 @@ Dalam tahap  ini akan dilakukan proses transformasi pada data sehingga menjadi b
       ![image](https://user-images.githubusercontent.com/79253590/138238613-62c04673-02d5-4537-870b-c042ece8d2f0.png)
       
    * *Model-Based Collaborative filtering Recommendation*
+      
       Akan dilakukan *training data user* buku dengan model SVD dari library Surprise yang selanjutnya 10 buku dengan prediksi rating tertinggi akan diurutkan.
       Hasil rekomendasinya sebagai berikut:
       
       ![image](https://user-images.githubusercontent.com/79253590/138238871-364eb510-d58d-4097-a957-4c58acce83f3.png)
       
 # Evaluasi
-   
+
+Hasil evaluasi dari model SVD menggunakan metode *k-fold cross validation*. Metode ini adalah salah satu dari jenis pengujian *cross validation* yang berfungsi untuk menilai kinerja proses sebuah metode algoritme dengan membagi sampel data secara acak dan mengelompokkan data tersebut sebanyak nilai *K fold*. Dimana data training adalah K-1 fold dan sisanya digunakan sebagai data testing. Kemudian hasil testing dihitung dengan matriks:
+
+1. *Mean Absolute Error* (MAE)
+    
+    Merepresentasikan rata-rata perbedaan mutlak antara nilai aktual dan prediksi pada dataset. MAE mengukur rata-rata residu dalam dataset. MAE lebih intuitif dalam memberikan rata-rata error dari keseluruhan data.
+    
+    ![image](https://user-images.githubusercontent.com/79253590/138239741-58eadce7-8fbf-462e-88d9-8b954b22403f.png)
+    
+2. *Root Mean Squared Error* (RMSE)
+
+    Cara menghitungnya yaitu dengan mengkuadratkan error (prediksi – observasi) dibagi dengan jumlah data (= rata-rata), lalu diakarkan. 
+    
+    ![image](https://user-images.githubusercontent.com/79253590/138239899-3ce11efc-09c7-4889-904e-fff9a1ea7265.png)
+    
+ 
+Dalam proses analisis kali ini, data user buku akan di training dengan model SVD dari library surprise dan mengevaluasi dengan 10-fold cross validation menggunakan matriks RMSE dan MAE. Validasi silang 10 kali lipat akan melakukan prosedur pemasangan sebanyak sepuluh kali, dengan masing-masing pemasangan dilakukan pada set pelatihan yang terdiri dari 90% dari total set pelatihan yang dipilih secara acak, dengan 10% sisanya digunakan sebagai set penahan untuk validasi. 10 fold CV adalah salah satu K fold CV yang direkomendasikan untuk pemilihan model terbaik karena cenderung memberikan estimasi akurasi yang kurang bias dibandingkan dengan CV biasa, leave-one-out CV dan bootstrap.
+Hasil dari perhitungannya adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/79253590/138240014-7455c6f4-6f94-44ef-be92-62158d1c9446.png)
+
+Dalam perhitungan ini, diperoleh nilai rata-rata *Mean Absolute Error* (MAE) sebesar 1.62 dan nilai rata-rata *Root Mean Squared Error* (RMSE) sebesar 1.25 . Sehinggan dapat kita buat kesimpulan bahwa pada model ini nilai error nya cukup kecil sehingga menandakan model tersebut sudah baik. Hal ini dibuktikan juga dengan hasil rekomendasi buku yang cukup baik dan sesuai kategorinya.
+
    
 # Referensi
 
