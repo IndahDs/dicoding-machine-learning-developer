@@ -58,18 +58,85 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
 ![image](https://user-images.githubusercontent.com/79253590/138232232-5c0e24cd-af12-4d65-9fd1-c9fcd7cd082f.png)
 
 Tabel dibawah ini merupakan informasi dari dataset yang digunakan :
-| Jenis | Keterangan|
-| Sumber | [Kaggle Dataset](https://www.kaggle.com/arashnic/book-recommendation-dataset)|
-| Usability| 10.0 |
-| Lisensi | CC0: Public Domain |
+|           Jenis         |  Keterangan |
+| ----------------------- | ----------- |
+|           Sumber        | [Kaggle Dataset : Book Recommendation Dataset](https://www.kaggle.com/arashnic/book-recommendation-dataset)|
+|         Usability       | 10.0 |
+|          Lisensi        | CC0: Public Domain |
 | Jenis dan Ukuran Berkas | zip (107MB) |
 
+Dalam dataset tersebut berisi 3 file csv, yaitu:
+* *Books* 
+  Berisi informasi buku: 
+  * *Book-Title*: judul
+  * *Book-Author*: penulis
+  * *Year-Of-Publication*: Tahun terbit
+  * *Publisher*: Penerbit
+  * *Image-URL-S*, *Image-URL-M, Image-URL-L* : link sampul buku
+  
+* *Ratings*
+  Berisi informasi rating buku dari user
+  * *Book-Rating*: rating buku 
+  
+* *Users*
+  Berisi informasi user
+  * *UserID*: identitas unik user berupa integer agar user anonymous
+  * *Location*: lokasi tempat tinggal use
+  * *Age*: umur user
 
+# Data Preparation
+Dalam tahap  ini akan dilakukan proses transformasi pada data sehingga menjadi bentuk yang cocok untuk proses pemodelan. Ada beberapa tahapan yang dilakukan pada data preparation, antara lain :
+* *Handling Missing Value*
+  Proses mengolah missing value (ex: data umur yang null, data rating 0) dengan menghapus atau mengganti data tersebut dengan value lain.
+* *Encoding* 
+  Melakukan encoding data UserID dan Book Title agar dapat dibaca model dengan baik.
+* Transformasi Data
+  Mentransformasikan book author menjadi matrix dengan TF-IDF Vectorizer untuk mengidentifikasi korelasi antara buku dan authornya.
+* *Merge* Data
+  Menggabungkan data rating dan buku untuk dijadikan dataset.
+
+# Modelling
+   * *Popularity based recommendation* 
+      Digunakan untuk menggabungkan informasi rata-rata rating dan jumlah rating yang diterima per buku dengan menerapkan *weighted rating*, kemudian memilih 10 produk terbaik . Berikut rumus dari *weighted rating* :
+      *Weighted Rating* = (Rv + Cm) / (v + m), 
+      keterangan :
+      * v adalah jumlah rating diterima per buku 
+      * R adalah rata-rata rating per buku
+      * C adalah rata-rata rating seluruh buku
+      * m adalah minimal jumlah rating yang diterima. 
+      
+      ![image](https://user-images.githubusercontent.com/79253590/138235856-811f8ac7-2233-4ac9-a3f0-59e4e96527b2.png)
+      
+      Plot hasil rekomendasi dengan menerapkan *weighted rating* sebagai berikut:
+      
+      ![image](https://user-images.githubusercontent.com/79253590/138238337-6f7a03f5-38d0-45cb-8181-afcff0c6863f.png)
+      
+   * *Content-Based Recommendation*
+      Akan dilakukan perhitungan skor kesamaan menggunakan kesamaan kosinus untuk menghitung kuantitas numerik yang menunjukkan kesamaan antara dua kategori. Dalam hal ini menerapkan skor kesamaan kosinus karena tidak tergantung pada besarnya dan relatif mudah dan cepat untuk dihitung. Secara matematis, didefinisikan sebagai berikut:
+
+      ![image](https://user-images.githubusercontent.com/79253590/138236911-1336b352-e704-4c66-bdb4-e3905200916a.png)
+      
+      Hasil rekomendasinya adalah sebagai berikut:
+      
+      ![image](https://user-images.githubusercontent.com/79253590/138238613-62c04673-02d5-4537-870b-c042ece8d2f0.png)
+      
+   * *Model-Based Collaborative filtering Recommendation*
+      Akan dilakukan *training data user* buku dengan model SVD dari library Surprise yang selanjutnya 10 buku dengan prediksi rating tertinggi akan diurutkan.
+      Hasil rekomendasinya sebagai berikut:
+      
+      ![image](https://user-images.githubusercontent.com/79253590/138238871-364eb510-d58d-4097-a957-4c58acce83f3.png)
+      
+# Evaluasi
+   
+   
 # Referensi
 
 [[1]](http://lib.unnes.ac.id/2202/1/4308.pdf) Hayati, N. (2009). Faktor-Faktor Yang Mempengaruhi Minat Baca Buku Referensi Mata Pelajaran Sosiologi (Kaus Siswa SMA Negeri 1 Sukorejo Kendal Tahun Ajaran 2008/2009). Faktor-Faktor Yang Mempengaruhi Minat Baca Buku Referensi Mata Pelajaran Sosiologi (Kaus Siswa SMA Negeri 1 Sukorejo Kendal Tahun Ajaran 2008/2009), 3(2), 94.
 
 [[2]](https://d1wqtxts1xzle7.cloudfront.net/35130578/216-222-knsi2010-037-analisis-dan-implementasi-metode-item-based-clustering-hybrid-pada-recommender-system-with-cover-page-v2.pdf?Expires=1634801276&Signature=ckV~k210NzS5aQVM9SyB~YoyeXNt2w2JsuPigoWOy84Qm~CA83O4wqv5OZLybbqKL10tD32wPe~0lROCcvOptvOY6J-Y5DcWfYLzKbzDtegB5CcV7~ZwBHjY~XHGUQPFQKB7vFFb7NZ9SI58D5VBxNqpsiP~S7m0~PzMG7pm-xtFZgP84oYsVsfL3PqEoEZAL09NmKEXq1FFnj2hzGo0cKRP8kAEC3X0GW1ZUvK6WL0HetXbJAYMbZPmro5e4r2oyuUNrIsF~0Dur4w7XudJ2WA6pCaVg~JcMloWV9W0HHSAgNWLuarH6RHneh0WWKwv4PC2AlMMoQyC8JiU7nPriQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA) Djamal, R.A., Maharani, W. & Kurniati, P. 2010. Analisis Dan Implementasi Metode Item-Based Clustering Hybrid Pada Recommender System. Konferensi Nasional Sistem dan Informatika, (November): 216–222.
 
-[[3]](https://medium.com/the-owl/recommender-systems-f62ad843f70c) Saumyadeepta, Sen. (2020, July 06). Recommender Systems. Medium. 
-https://medium.com/the-owl/recommender-systems-f62ad843f70c
+[[3]](https://medium.com/the-owl/recommender-systems-f62ad843f70c) Saumyadeepta, Sen. (2020, July 06). Recommender Systems. Medium. https://medium.com/the-owl/recommender-systems-f62ad843f70c
+
+[[4]](https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity) scikit-learn.Cosine-Similarity.https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity
+
+
