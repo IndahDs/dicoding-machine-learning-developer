@@ -174,7 +174,7 @@ Hasil dari perhitungannya adalah sebagai berikut:
 
 ![image](https://user-images.githubusercontent.com/79253590/138240014-7455c6f4-6f94-44ef-be92-62158d1c9446.png)
 
-Dalam perhitungan ini, diperoleh nilai rata-rata *Mean Absolute Error* (MAE) sebesar 1.62 dan nilai rata-rata *Root Mean Squared Error* (RMSE) sebesar 1.25 . Sehinggan dapat kita buat kesimpulan bahwa pada model ini nilai error nya cukup kecil sehingga menandakan model tersebut sudah baik. Hal ini dibuktikan juga dengan hasil rekomendasi buku yang cukup baik dan sesuai kategorinya.
+Dalam perhitungan ini, diperoleh nilai rata-rata *Mean Absolute Error* (MAE) sebesar 1.63 dan nilai rata-rata *Root Mean Squared Error* (RMSE) sebesar 1.26 . Sehinggan dapat kita buat kesimpulan bahwa pada model ini nilai error nya cukup kecil sehingga menandakan model tersebut sudah baik. Hal ini dibuktikan juga dengan hasil rekomendasi buku yang cukup baik dan sesuai kategorinya.
 
    
 # Referensi
