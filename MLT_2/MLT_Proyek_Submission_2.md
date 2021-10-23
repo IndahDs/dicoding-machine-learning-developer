@@ -20,8 +20,8 @@ Setelah mengetahui beberapa masalah diatas, berikut ini merupakan rincian masala
 # Goals
 
 Berikut adalah tujuan dari dibuatnya proyek ini:
+* Mengetahui cara mengolah data buku, user, dan rating untuk digunakan pada sistem rekomendasi.
 * Membuat sistem rekomendasi buku.
-* Memberikan rekomendasi buku yang kemungkinan disukai pengguna berdasarkan data buku, user, dan rating.
 
 # Solution approach
 
@@ -154,7 +154,17 @@ Dalam tahap  ini akan dilakukan proses transformasi pada data sehingga menjadi b
       
 # Evaluasi
 
-Hasil evaluasi dari model SVD menggunakan metode *k-fold cross validation*. Metode ini adalah salah satu dari jenis pengujian *cross validation* yang berfungsi untuk menilai kinerja proses sebuah metode algoritme dengan membagi sampel data secara acak dan mengelompokkan data tersebut sebanyak nilai *K fold*. Dimana data training adalah K-1 fold dan sisanya digunakan sebagai data testing. Kemudian hasil testing dihitung dengan matriks:
+Pada *content-based recommendation* akan digunakan *precision* sebagai metrik evaluasi. *Precision* adalah jumlah item rekomendasi yang relevan. Secara matematis dapat dituliskan dengan rumus sebagai berikut.
+
+![image](https://user-images.githubusercontent.com/79253590/138541659-204c6de6-dbab-446e-a052-3356fd6671be.png)
+
+Berdasarkan hasil rekomendasi menggunakan *content-based recommendation* yakni sebagai berikut
+
+![image](https://user-images.githubusercontent.com/79253590/138238613-62c04673-02d5-4537-870b-c042ece8d2f0.png)
+ 
+Diperoleh *precision* = 10/10 . Sehingga presisinya adalah sebesar 100 %.
+
+Selanjutnya, untuk hasil evaluasi dari model SVD menggunakan metode *k-fold cross validation*. Metode ini adalah salah satu dari jenis pengujian *cross validation* yang berfungsi untuk menilai kinerja proses sebuah metode algoritme dengan membagi sampel data secara acak dan mengelompokkan data tersebut sebanyak nilai *K fold*. Dimana data training adalah K-1 fold dan sisanya digunakan sebagai data testing. Kemudian hasil testing dihitung dengan matriks:
 
 1. *Mean Absolute Error* (MAE)
     
