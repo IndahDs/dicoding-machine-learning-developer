@@ -179,12 +179,12 @@ Selanjutnya, untuk hasil evaluasi dari model SVD menggunakan metode *k-fold cros
     ![image](https://user-images.githubusercontent.com/79253590/138239899-3ce11efc-09c7-4889-904e-fff9a1ea7265.png)
     
  
-Dalam proses analisis kali ini, data user buku akan di training dengan model SVD dari library surprise dan mengevaluasi dengan 10-fold cross validation menggunakan matriks RMSE dan MAE. Validasi silang 10 kali lipat akan melakukan prosedur pemasangan sebanyak sepuluh kali, dengan masing-masing pemasangan dilakukan pada set pelatihan yang terdiri dari 90% dari total set pelatihan yang dipilih secara acak, dengan 10% sisanya digunakan sebagai set penahan untuk validasi. 10 fold CV adalah salah satu K fold CV yang direkomendasikan untuk pemilihan model terbaik karena cenderung memberikan estimasi akurasi yang kurang bias dibandingkan dengan CV biasa, leave-one-out CV dan bootstrap.
+  Dalam proses analisis kali ini, data user buku akan di training dengan model SVD dari library surprise dan mengevaluasi dengan 10-fold cross validation menggunakan matriks RMSE dan MAE. Validasi silang 10 kali lipat akan melakukan prosedur pemasangan sebanyak sepuluh kali, dengan masing-masing pemasangan dilakukan pada set pelatihan yang terdiri dari 90% dari total set pelatihan yang dipilih secara acak, dengan 10% sisanya digunakan sebagai set penahan untuk validasi. 10 fold CV adalah salah satu K fold CV yang direkomendasikan untuk pemilihan model terbaik karena cenderung memberikan estimasi akurasi yang kurang bias dibandingkan dengan CV biasa, leave-one-out CV dan bootstrap.
 Hasil dari perhitungannya adalah sebagai berikut:
 
-![image](https://user-images.githubusercontent.com/79253590/138240014-7455c6f4-6f94-44ef-be92-62158d1c9446.png)
+  ![image](https://user-images.githubusercontent.com/79253590/138240014-7455c6f4-6f94-44ef-be92-62158d1c9446.png)
 
-Dalam perhitungan ini, diperoleh nilai rata-rata *Mean Absolute Error* (MAE) sebesar 1.63 dan nilai rata-rata *Root Mean Squared Error* (RMSE) sebesar 1.26 . Sehinggan dapat kita buat kesimpulan bahwa pada model ini nilai error nya cukup kecil sehingga menandakan model tersebut sudah baik. Hal ini dibuktikan juga dengan hasil rekomendasi buku yang cukup baik dan sesuai kategorinya.
+  Dalam perhitungan ini, diperoleh nilai rata-rata *Mean Absolute Error* (MAE) sebesar 1.63 dan nilai rata-rata *Root Mean Squared Error* (RMSE) sebesar 1.26 . Sehinggan dapat kita buat kesimpulan bahwa pada model ini nilai error nya cukup kecil sehingga menandakan model tersebut sudah baik. Hal ini dibuktikan juga dengan hasil rekomendasi buku yang cukup baik dan sesuai kategorinya.
 
    
 # Referensi
