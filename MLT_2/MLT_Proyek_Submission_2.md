@@ -21,7 +21,7 @@ Setelah mengetahui beberapa masalah diatas, berikut ini merupakan rincian masala
 
 Berikut adalah tujuan dari dibuatnya proyek ini:
 * Mengetahui cara mengolah data buku, user, dan rating untuk digunakan pada sistem rekomendasi.
-* Membuat sistem rekomendasi buku.
+* Mengetahui cara membuat sistem rekomendasi buku.
 
 # Solution approach
 
